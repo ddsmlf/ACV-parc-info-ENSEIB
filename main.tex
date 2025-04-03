@@ -1,0 +1,208 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\setlength{\headheight}{14.49998pt}
+\usepackage{graphicx}
+\usepackage[sorting=none]{biblatex}
+\addbibresource{references.bib}
+\usepackage{lastpage} 
+\usepackage{svg}
+\usepackage{titlesec}
+\usepackage[french]{babel}
+\usepackage{lipsum} % Pour le texte d'exemple
+\graphicspath{{img/}}
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3cm}
+
+\newcommand{\Title}{ACV du parc informatique de l’ENSEIRB-MATMECA} 
+\newcommand{\Course}{Développement durable et responsabilité sociétale
+\\ Département Informatique
+\\ S6 - Année 2024/2025} 
+\newcommand{\Author}{Mélissa Colin - Noé Offredo}
+\newcommand{\Date}{\today}
+\pagestyle{fancy}
+\lhead{\textbf{\Author}} 
+\rhead{1A - Informatique}
+\cfoot{\thepage/\pageref{LastPage}}
+
+
+
+% Configuration des sections pour qu'elles soient centrées et commencent sur une nouvelle page
+\newcommand{\sectionbreak}{\clearpage} % Force une page avant chaque section
+\titleformat{\section} % Format des sections
+    {\centering\Large\bfseries} % Centré, grand, gras
+    {\thesection} % Numéro de section
+    {1em} % Espacement
+    {} % Style du titre
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{3cm}
+    {\Huge \textbf{\Title}}\\[1.5cm]
+    {\Large \textit{\Course}}\\[2cm]
+    \textbf{\Author}\\[1cm]
+    \Date\\
+    \vfill
+    \includegraphics[width=0.3\textwidth]{logo.png}
+    \vspace*{1cm}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+\subsection{Contexte et motivation}
+L’objectif de ce TP est de comparer les impacts environnementaux de 2 solutions numériques
+pour le parc informatique de l’école à l’aide d’openLCA et d’ecoinvent.
+Ce TP a une durée de 5 h environ. Un compte-rendu de 4 pages (2 feuilles
+recto/verso) est attendu. Il faudra déposer ce rapport sur Moodle, en PDF.
+Il y a des questions bonus. Vous devez en choisir au moins trois pour votre CR. Ces questions
+sont relativement larges et doivent demander une étude approfondie.
+L’objectif de ce projet est de comparer 2 solutions pour renouveler le parc informatique de
+l’ENSEIRB-MATMECA :
+• 600 ordinateurs Dell de type tour T1700/3620,
+• 600 Raspberry Pi 4 Rev B (processeur ARM v8 Cortex-A72) connectés à 6 serveurs Dell
+Precision 7920T équipés de deux processeurs Intel Xeon Platinum 8168.
+Nous allons intégrer dans cette comparaison seulement ce qui est différent (fabrication et uti-
+lisation des deux solutions) et nous n’allons donc pas considérer l’écran ou les périphériques
+d’entrée (clavier, souris, etc.). La fin de vie ne sera pas prise en compte. C’est un champ de
+recherche et de développement industriel en plein essor et il est difficile pour le moment de
+facilement la modéliser. C’est un des premiers points d’amélioration possibles de cette étude.
+L’unité fonctionnelle est :
+Utilisation de 600 ordinateurs à l’ENSEIRB-MATMECA pendant 5 ans.
+Ce TP se fait en 3 étapes :
+I. Nous allons commencer par modéliser l’ordinateur de type tour T1700/3620. Des briques
+sont disponibles (les processus [Motherboard], [RAM] et [GPU] et les providers associés
+ont été créés lors d’un projet 2020/2021 par des étudiants de 2A de la filière Électronique).
+II. Les processus [Raspberry Pi 4 Rev B] et [Server 48 cores] sont déjà créés. Il ne reste qu’à
+créer le processus d’utilisation couplée de ces 2 technologies.
+III. Enfin, une comparaison des 2 stratégies sera mise en place.
+Les processus à utiliser sont donnés en annexe. N’hésitez pas à réfléchir et à
+critiquer (de manière constructive !) l’ensemble des étapes de ce TP. Pensez à bien
+indiquer les sources des résultats de vos recherches
+\subsection{Plan}
+\noindent \lipsum[1-2]
+
+\section{Méthodologie}
+\lipsum[1-2]
+\subsection{Ordinateur Dell de type tour T1700/3620}
+Créer le processus Computer DELL T1700/3620 dans le dossier Processes/2 : TP2 - Compu-
+ters/. L’unité est Number of items. Nous en considérerons 600 quand nous ferons le processus
+d’utilisation de cette stratégie. Ne pas oublier de compléter aussi la colonne Description dans la
+liste des Inputs/Outputs pour ne pas vous perdre dans toutes les étapes. Rappel : le transport
+des matières premières sur le site de fabrication sera intégré en ayant recours à des providers de
+type market for. Nous supposons que l’ordinateur est fabriqué en Chine.
+1. Voici les différents composants que vous devez intégrer à votre ordinateur (Table 1) :
+(a) La carte mère - Elle accueille l’ensemble des composants internes de votre ordinateur
+(processeur, mémoire. . .) et gère les différentes interfaces avec vos périphériques : prises
+pour les éléments internes et ports USB pour les périphériques externes.
+(b) Le processeur - Il permet de manipuler et de traiter les données qui lui sont fournies.
+Sa puissance a une influence sur la vitesse d’exécution des logiciels et des opérations
+effectuées.
+(c) La mémoire vive - Elle stocke temporairement les données à traiter par le processeur.
+Ainsi, plus il y a de mémoire de disponible, plus il est possible d’y conserver de données
+temporaires (ce qui évite d’accéder au disque dur qui est plus lent). La mémoire vive est
+vidée à chaque arrêt ou redémarrage de votre ordinateur.
+(d) Le disque dur - Contrairement à la mémoire vive, les données stockées sur un disque dur
+sont permanentes et ne sont pas effacées à l’arrêt de votre ordinateur. C’est donc sur ce
+disque que votre système d’exploitation, vos logiciels et vos documents sont conservés.
+(e) L’alimentation - Elle a pour rôle d’assurer la fourniture en électricité de tous les com-
+posants de votre ordinateur. C’est un élément important puisque les tensions délivrées
+doivent rester stables même lorsque l’alimentation est très sollicitée.
+(f) La carte graphique - Elle permet de traiter et d’afficher sur un écran les données provenant
+de votre ordinateur.
+(g) Le lecteur / graveur CD/DVD.
+[Bonus 1]. Détailler la modélisation de la carte mère. La critiquer.
+2. Concernant le châssis de l’ordinateur, un processus unitaire a été créé.
+[Bonus 2]. Décrire le processus du châssis en détails. Le critiquer.
+3. Concernant l’assemblage, nous allons considérer l’électricité produite en Chine, l’eau potable
+et son traitement (Table 2). Pour le traitement, la valeur doit être négative car c’est
+considéré comme un déchet. C’est une particularité de la BDD ecoinvent. Pour les
+quantités d’électricité et d’eau utilisées par l’usine d’assemblage, elles sont issues du processus
+ecoinvent desktop computer et sont ramenées à une tour dont les détails sont donnés dans ce
+rapport.
+[Bonus 3]. Retrouver les valeurs proposées pour les quantités d’électricité et d’eau.
+4. Nous allons à présent considérer l’emballage de l’ordinateur (packaging). Nous prendrons en
+compte : l’emballage cartonné, les granulés de plastique pour tous les films plastiques et enfin la
+transformation du plastique (polypropylène) en film (Table 2).
+5. L’ordinateur est transporté du site de fabrication au site d’utilisation. Nous supposons que
+ce trajet se fait en bateau (15 000 km) et en camion (1000 km en Chine et 1000 km en France
+hexagonale). Vous pouvez utiliser l’unité km × kg une fois que vous aurez estimé le poids de
+notre colis. Pour les processus de cette question, vous pouvez vous inspirer du TP 1 et utiliser
+le processus transport, freight, sea, transoceanic ship pour la partie maritime.
+6. Bravo votre processus Computer DELL T1700/3620 est terminé ! Vous pouvez donc créer le
+product system associé et réaliser le calcul d’impact. Faire une comparaison avec le bilan carbone
+effectué par Dell : lien.
+Point d’étape : appelez votre chargé·e de TP
+7. Nous allons maintenant pouvoir créer le processus correspondant à notre unité fonction-
+nelle. Vous pouvez donc créer un processus Use of computer DELL T1700/3620 at ENSEIRB-
+MATMECA. L’unité est la durée d’utilisation des ordinateurs. Compléter ce processus sachant
+que nous souhaitons prendre en compte à la fois les 600 ordinateurs mais aussi leur consomma-
+tion électrique (en phase d’usage classique, Table 3). À présent, vous pouvez créer le product
+system et faire le calcul. Voici quelques questions :
+a. Bilan carbone : Comment se sépare la phase de fabrication de la phase d’usage ? Et par rap-
+port à l’étude de Dell ?
+b. Bilan carbone : Qu’est-ce qui est le plus impactant dans l’ordinateur ?
+c. Étudier d’autres facteurs d’impact comme par exemple : ionizing radiation, water consumption
+et mineral ressources scarcity.
+[Bonus 4]. Bilan carbone : Quel est le bilan carbone d’un étudiant ou d’une étudiante de
+l’ENSEIRB-MATMECA pour la partie informatique durant ses 3 années d’études ?
+\subsection{Six cent Raspberry Pi couplés à six serveurs}
+On considère que 6 serveurs sont suffisants pour piloter 600 clients légers constitués de Raspberry
+Pi.
+8. Regarder et commenter le processus Raspberry Pi 4 Rev B. Faire de même avec le processus
+Serveur 48 cœurs. Remarque : Le processus mounting correspondant ici à l’assemblage des
+composants sur le circuit imprimé (placement des composants, brasure, nettoyage des cartes
+assemblées à l’issue du processus, etc.). Pour l’ordinateur et le serveur, il est déjà directement
+intégré au niveau des composants.
+9. Créer le product system Use of Raspberry + Server at ENSEIRB-MATMECA. Ne pas oublier
+de prendre en compte la consommation électrique des Raspberry Pi mais aussi des serveurs.
+Répondre aux questions qui vous semblent pertinentes de la question 7
+
+
+\subsection{Protocole}
+\noindent \lipsum[1-2]
+
+
+\section{Résulats}
+\subsection{Ordinateur Dell de type tour T1700/3620}
+\noindent \lipsum[1-2]
+
+\subsection{Six cent Raspberry Pi couplés à six serveurs}
+\noindent \lipsum[1-2]
+
+\subsection{Comparaison entre les 2 stratégies}
+10. Vous pouvez maintenant effectuer une comparaison entre les 2 stratégies. Quelle est votre
+conclusion ? Quelles sont les limitations de l’étude ? Quels sont les avantages et les inconvénients
+de chacune des stratégies ?
+Point d’étape : appelez votre chargé·e de TP
+11. Six serveurs sont suffisants mais en cas de panne, cela peut poser problème. Que se passe-t-il
+si l’on en considère 8 ? Votre conclusion change-t-elle ?
+[Bonus 5]. Que se passe-t-il si l’on fait à présent notre étude avec le mix électrique polonais ?
+[Bonus 6]. Les écrans n’ont pas été modélisés. Quels sont les choix que nous aurions pu faire ?
+(Rechercher par exemple des bilans carbone d’écrans).
+
+\section{Discussion}
+\noindent \lipsum[1-2]
+\subsection{Limites de l'étude}
+\noindent \lipsum[1-2]
+\subsection{Perspectives}
+\noindent \lipsum[1-2]
+
+
+% Conclusion
+\section{Conclusion et ouvertures}
+\noindent \noindent \lipsum[1-2]
+\include{glossaire}
+
+% Références
+\printbibliography
+\addcontentsline{toc}{section}{Références}
+
+\end{document}
