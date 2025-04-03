@@ -1,0 +1,130 @@
+\documentclass[french]{pfia}
+
+% ------------------------------------------
+% TITRE
+% ------------------------------------------
+
+\title{\textbf{Mon  article pour une CH de PFIA (V2.1)}}
+
+
+% ------------------------------------------
+% AUTEUR(S)
+% ------------------------------------------
+
+% 1 auteur
+% \author{L. Auteur \\
+%  Organisme de rattachement, acronyme laboratoire}
+% \date{mél}
+ 
+% plusieurs auteurs 
+\author{A. NomA\fup{1}, B. NomB\fup{2}, C. NomC\fup{1,3} ...\\[6pt]
+\fup{1} Organisme de rattachement 1, acronyme laboratoire 1\\
+\fup{2} Organisme de rattachement 2, acronyme laboratoire 2\\
+\fup{3} Organisme de rattachement 3, acronyme laboratoire 3\\
+...}
+
+\date{mél}
+
+\begin{document}
+
+\maketitle
+
+% ------------------------------------------
+% RÉSUMÉS ET MOTS-CLÉS
+% ------------------------------------------
+
+\begin{resume}
+C'est mon résumé. Il doit occuper AU MAXIMUM une dizaine de lignes.
+\end{resume}
+
+\begin{motscles}
+Exemple type, format, modèle.
+\end{motscles}
+
+\begin{abstract}
+It's the English version of the abstract. Exactly as in French it must be short. It must speak of the same topics...  
+\end{abstract}
+
+\begin{keywords}
+Example, model, template.
+\end{keywords}
+
+% ------------------------------------------
+% CORPS DE L'ARTICLE
+% ------------------------------------------
+
+\section{Introduction}
+
+La base du texte est du Times-Roman 10 points présenté en deux colonnes. La séparation intercolonne est de 1~cm. 
+Les marges à gauche et à droite sont de 1,2~cm. Les marges en haut et en bas sont de 2,6~cm.
+
+Le titre principal est en 14 points gras (28 points = 1cm).
+
+Dans les sections, le titre est en 12 points gras.
+Les paragraphes ne sont pas décalés.
+
+\subsection{Travaux antérieurs}
+
+Les en-têtes sont également en 12 points gras.
+
+Il n'y a pas nécessairement d'espacement entre les paragraphes.
+
+Les références à la Bibliographie peuvent être de la forme
+ \cite{key:foo} o\`u \cite{foo:baz}.  Les numéros correspondent à
+ l'ordre d'apparition dans la bibliographie, pas dans le texte.
+ L'ordre alphabétique est conseillé.
+
+\subsubsection{Les autres éléments}
+
+Vous pouvez également utiliser des sous-sous-sections (comme c'est le cas ici). Taille 10 points, gras.
+
+Pour les figures, elles doivent être insérées à l'aide de l'environnement \verb|figure| et avoir une légende numérotée.
+
+L'inclusion d'images peut se faire à l'aide de la commande
+\verb|\includegraphics|.
+
+Vous pouvez utiliser des listes d'éléments sans changer l'item (ici le tiret) :
+\begin{itemize}
+  \item item1
+  \item item2
+  \item ...
+\end{itemize}
+
+Vous pouvez utiliser aussi l'environnement \verb|\paragraph|.
+
+\paragraph{Ce ceci est un paragraphe.} Remarquez que le titre du paragraphe se termine par un point, et qu'il n'est PAS numéroté.
+
+Essayez si possible de ne pas utiliser de subdivision supplémentaire dans votre article car il risquerait de perdre en lisibilité. 
+\section{Pagination}
+
+Afin que l'éditeur puisse assembler vos contributions en un seul volume, veillez impérativement à :
+\begin{itemize}
+  \item ne PAS ajouter de numéros de page ;
+  \item ne PAS changer les marges (ou tout autre élément de mise en page) ;
+  \item d'une manière générale, ne PAS modifier le style fourni ou ne PAS lui ajouter des éléments de formatage qui changent le visuel, sinon votre contribution risque de ne pas être formatée de la même manière que celle des autres.
+\end{itemize}
+
+En principe, les articles doivent faire au plus 8 pages.
+
+\section{Biblio}
+
+Dans la section suivante, vous voyez deux exemples de références. Si vous utilisez bib\TeX, alors spécifiez l'utilisation du style plain à l'aide de la commande habituelle : \verb|\bibliographystyle{plain}|.
+
+\section*{Remerciements}
+Les remerciements s'expriment juste avant la bibliographie, à l'aide d'une Section non numérotée.
+
+
+\begin{thebibliography}{9}
+\bibitem{foo:baz}
+U. Nexpert,
+{\em Le livre,}
+Son Editeur, 1929.
+\bibitem{key:foo}
+I. Troiseu-Pami,
+ Un article intéressant,
+{\em Journal de Spirou}, Vol. 17, pp. 1-100, 1987.
+\end{thebibliography}
+
+
+\end{document}
+
