@@ -125,17 +125,16 @@ Nous avons alors pu créer le processus \textit{Computer DELL T1700/3620} visibl
 
 \subsection{Six cent Raspberry Pi couplés à six serveurs}
 Nous considérons dans notre étude que 600 Raspberry Pi 4 Rev B sont couplés à 6 serveurs Dell Precision 7920T. Nous allons modéliser l'impact environnemental de cette solution en utilisant directement les processus qui nous ont été fournis. A partir de ces processus, nous avons pu en créer un autre, \textit{Use of Raspberry + Server at ENSEIRB-MATMECA}, correspondant à l'utilisation d'un système informatique composé de Raspberry Pi et de Serveurs 48 coeurs à l'ENSEIRB-MATMECA. Celui ci modélise donc à la fois la fabrication et le transport initial du matériel informatique ainsi que sa consommation électrique au court de sa durée de vie.
-
-\section{Résulats}
-\subsection{Ordinateur Dell de type tour T1700/3620}
-\label{sec:computer}
-
 \begin{figure}[H]%[htbp]
     \centering
     \includegraphics[width=\linewidth, trim=80 0 80 90, clip]{img/graph-dell-vs-our.png}
     \caption{Comparaison entre le bilan carbone de Dell~\cite{Dell2018} et celui de notre modélisation}
     \label{fig:computer-impact}
 \end{figure}
+\section{Résulats}
+\subsection{Ordinateur Dell de type tour T1700/3620}
+\label{sec:computer}
+
 \textcolor{blue}{[Question 6-1 et 7-b]}~La figure~\ref{fig:computer-impact} présente la comparaison entre le bilan carbone de Dell et celui de notre modélisation. Nous pouvons observer que la carte représente près de 60\% du bilan carbone total d'après DELL, tandis que notre modélisation indique que la carte mère et les autres cartes représentent environ 70\% du bilan carbone total. Néanmoins ils sont équivalent en termes de CO\textsubscript{2}e émis comme présenté dans le tableau~\ref{tab:emissions}.\\
 \begin{table}[H]
     \centering
@@ -245,7 +244,7 @@ assemblées à l’issue du processus, etc.). Pour l’ordinateur et le serveur,
 \subsection{Comparaison entre les 2 stratégies}
 \textcolor{blue}{[Question 11]}~Dans cette étude, nous avons modélisé l'impact environnemental pour six serveurs. Les résultats obtenus dans la section précédente montrent que cette solution est prometteuse avec un impact environnemental bien plus faible que celui de l'ordinateur Dell T1700/3620. Cependant, en cas de panne, cette quantité peut s'avérer insuffisante. Nous avons donc modélisé l'impact environnemental pour huit serveurs, ce qui a présenté une très légère augmentation de l'impact de la solution comme le présente la figure~\ref{fig:8vs6vsDELL}, ceci ne changeant donc pas notre conclusion précédente. En effet, nous avons pu observer que l'impact environnemental de la solution Raspberry Pi est bien plus faible que celui de l'ordinateur Dell T1700/3620.\\
 Notons néanmoins que bien que la solution des Raspberry Pi semble bien meilleure, sa mise en place pose beaucoup de contraintes : le réseau complet de l'ENSEIRB-MATMECA doit être revu, l'ensemble de ses équipements doit être acheté ensemble, ce qui engendre un très grand investissement sans acompte. \\
-\textcolor{blue}{[Question 10-1]}~Ainsi, bien que cette solution soit avantageuse sur le plan environnemental, sa mise en place est complexe et coûteuse.
+\textcolor{blue}{[Question 10-1]}~Ainsi, bien que cette solution soit avantageuse sur le plan environnemental, sa mise en place est complexe et coûteuse.\\
 \textcolor{blue}{[Bonus 4]}~\textcolor{gray}{[Bonus 4]. Bilan carbone : Quel est le bilan carbone d’un étudiant ou d’une étudiante de}
 \textcolor{gray}{l’ENSEIRB-MATMECA pour la partie informatique durant ses 3 années d’études ?}
 
