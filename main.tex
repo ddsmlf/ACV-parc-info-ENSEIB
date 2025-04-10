@@ -1,5 +1,6 @@
 \documentclass[12pt,a4paper]{paper}
 \usepackage{float} % Required for the H float option
+\usepackage{stfloats}
 
 
 \newcommand{\Title}{Analyse du cycle de vie du parc informatique de l’ENSEIRB-MATMECA} 
@@ -99,6 +100,12 @@ medium voltage} avec une quantitée de 2,767 kWh. \textcolor{blue}{[Bonus 3]}~Po
 Pour l'eau potable, le sujet~\cite{TP2_ACV_ENSEIRB-MATMECA} nous indique que la valeur est de 1600kg. Nous avons donc utilisé le processus ecoinvent \textit{tap water} avec cette quantitée carelle est confirmée par le rapport \textit{Electronic Devices - Part III}\cite{Lehmann2007} qui indique que la consommation d'eau pour l'assemblage est de 1620kg, ce qui est très proche de la valeur fournie dans le sujet.\\
 Pour le traitement de l'eau, nous avons utilisé le processus ecoinvent \textit{wastewater, unpolluted} avec une quantitée de -1,62m³ trouvée dans le rapport \textit{Electronic Devices - Part III}\cite{Lehmann2007}. Cette valeur est négative car elle est considérée comme un déchet et la base de données ecoinvent qui utilise la méthode \textit{Opposite Direction Approach} qui consiste à modéliser les flux de déchets en tant que flux négatifs. Cette approche permet de représenter le traitement des déchets comme une consommation négative de ressources, inversant ainsi le sens conventionnel des flux de matériaux. En conséquence, le processus de traitement de l’eau est modélisé avec une valeur négative, indiquant qu’il s’agit d’un rejet nécessitant un traitement, et non d’une ressource consommée. Cette méthodologie garantit que les impacts environnementaux du traitement des déchets sont correctement pris en compte dans l’analyse du cycle de vie~\cite{openLCATutorial2020}.
 
+\begin{figure*}[b!]
+    \centering
+    \includegraphics[width=\textwidth]{computer-process.png}
+    \caption{Processus de fabrication de l'ordinateur}
+    \label{fig:computer-process}
+\end{figure*}
 \subsubsection{Emballage}
 Pour être transporté, l'ordinateur doit être emballé. Nous avons donc modélisé l'emballage de l'ordinateur en prenant en compte les éléments suivants :
 \begin{itemize}
@@ -115,16 +122,6 @@ Nous considérons que l'ordinateur est transporté du site de fabrication au sit
 
 \subsubsection{Création du processus}
 Nous avons alors pu créer le processus \textit{Computer DELL T1700/3620} visible en figure~\ref{fig:computer-process} en intégrant l'ensemble des processus que nous venons de décrire. Nous complétons ce processus pour prendre en compte à la fois les 600 ordinateurs mais aussi leur consommation électrique selon les données fournies dans le sujet~\cite{TP2_ACV_ENSEIRB-MATMECA}. \textcolor{red}{voir si on detail ici ou pas}. Ainsi nous pouvons créer le \textit{product system}\footnote{Un product system est un ensemble de processus interconnectés qui représentent un système de produits ou de services. Il permet d'analyser les flux de matières et d'énergie tout au long du cycle de vie d'un produit.} associé et réaliser le calcul d'impact.
-
-
-
-
-\begin{figure}[h!]%[htbp]
-    \centering
-    \includegraphics[width=\linewidth]{computer-process.png}
-    \caption{Processus de fabrication de l'ordinateur}
-    \label{fig:computer-process}
-\end{figure}
 
 \subsection{Six cent Raspberry Pi couplés à six serveurs}
 Nous considérons dans notre étude que 600 Raspberry Pi 4 Rev B sont couplés à 6 serveurs Dell Precision 7920T. Nous allons modéliser l'impact environnemental de cette solution en utilisnat directement les processus qui nou sont été fournis. A partir de ces processus, nous avons pu créer le product system correspondant aux Raspberry Pi et aux serveurs. Nous avons ensuite modélisé la consommation électrique des Raspberry Pi et des serveurs en \textcolor{red}{COMPLETE STP}.
