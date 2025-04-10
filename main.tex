@@ -132,7 +132,7 @@ Nous considérons dans notre étude que 600 Raspberry Pi 4 Rev B sont couplés �
 
 \begin{figure}[H]%[htbp]
     \centering
-    \includegraphics[width=\linewidth]{img/graph-dell-vs-our.png}
+    \includegraphics[width=\linewidth, trim=80 0 80 90, clip]{img/graph-dell-vs-our.png}
     \caption{Comparaison entre le bilan carbone de Dell et celui de notre modélisation}
     \label{fig:computer-impact}
 \end{figure}
@@ -197,6 +197,15 @@ Nous pouvons également constater sur la table~\ref{tab:comparatif} l'émissions
 
 \subsection{Comparaison entre les 2 stratégies}
 
+\begin{figure}[H]%[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{img/8vs6vsDELL.png}
+    \caption{Comparaison de l'impacte environnemental entre les 2 stratégies : six cent Raspberry Pi couplés à six serveurs et 600 ordinateurs Dell de type tour T1700/3620}
+    \label{fig:8vs6vsDELL}
+\end{figure}
+
+\textcolor{green}{La figure \ref{fig:8vs6vsDELL} représente la différence de l'impact environnementaux des 2 stratégies, ainsi que celle entre le choix de 6 ou 8 serveurs pour la stratégies combinant des Raspberry Pi et des serveurs. // Nous pouvons identifier que la stratégie consistant à installer 600 ordinateurs Dell de type tour T1700/3620 a un impact environnemental eviron 10 fois supérieur aux autres scénarios étudiés, et ce quelque soit la catégorie d'impact. \\ Parmis les 2 scénarios implémentant des Raspberry Pi a des serveurs, si les impacts environnementaux du scénario optant pour 8 serveurs sont légèrement supérieurs, ils restent cependant très proche de celui n'en ayant que 6. \\ \\ Nous avons pu observer qui si le fait de mettre en oeuvre 8 serveurs au lieu de 6 augmentait les impact environnementaux, cette augmentation est très faible voir négligeable dans le contexte d'une comparaison avec la stratégie consistant à déployer 600 ordinateurs Dell de type tour T1700/3620.}
+
 \textcolor{gray}{10. Vous pouvez maintenant effectuer une comparaison entre les 2 stratégies. Quelle est votre}
 \textcolor{gray}{conclusion ? Quelles sont les limitations de l’étude ? Quels sont les avantages et les inconvénients}
 \textcolor{gray}{de chacune des stratégies ?}
@@ -231,37 +240,20 @@ assemblées à l’issue du processus, etc.). Pour l’ordinateur et le serveur,
 \subsection{Comparaison entre les 2 stratégies}
 \textcolor{blue}{[Bonus 4]}~\textcolor{gray}{[Bonus 4]. Bilan carbone : Quel est le bilan carbone d’un étudiant ou d’une étudiante de}
 \textcolor{gray}{l’ENSEIRB-MATMECA pour la partie informatique durant ses 3 années d’études ?}
-\textcolor{gray}{\lipsum[1-2] }
+\textcolor{blue}{[Question 11]}~Dans cette étude, nous avons modélisé l'impact environnemental pour six serveurs, néanmoins, en cas de panne, cette quantitée peut s'averer insuffisnate. Nous avons donc modélisé l'impact environnemental pour huit serveurs ce qui à présenté une très légère augmentation de l'impacte de la solution, mais qui n'a pas changé notre conclusion. En effet, nous avons pu observer que l'impact environnemental de la solution Raspberry Pi est bien plus faible que celui de l'ordinateur Dell T1700/3620.\\
+\textcolor{blue}{[Question 10-1]}~\textcolor{gray}{Vous pouvez maintenant effectuer une comparaison entre les 2 stratégies. Quels sont les avantages et les inconvénients de chacune des stratégies ?}
+
+
 \subsection{Limites de l'étude}
-\textcolor{blue}{[Question 10-1]}~L'ensemble des processus utilisé pour modélisé les ordinateur sont déjà intégrés dans la base de données ecoinvent. Cependant, il est important de noter que ces processus peuvent ne pas être entièrement représentatifs des modèles spécifiques de l'ordinateur Dell T1700/3620. Par conséquent, il est possible que les résultats de l'analyse de cycle de vie ne reflètent pas fidèlement l'impact environnemental réel de ces ordinateurs. De plus, la modélisation des Raspberry Pi et des serveurs a été réalisée en utilisant des processus génériques, ce qui peut également introduire des incertitudes dans les résultats. Il est donc essentiel d'interpréter les résultats avec prudence et de considérer ces limitations lors de l'évaluation de l'impact environnemental du parc informatique de l'ENSEIRB-MATMECA.
-\textcolor{blue}{[Bonus 6]}~\textcolor{gray}{es écrans n’ont pas été modélisés. Quels sont les choix que nous aurions pu faire ?
-(Rechercher par exemple des bilans carbone d’écrans).}
+\textcolor{blue}{[Question 10-2]}~L'ensemble des processus utilisé pour modélisé les ordinateur sont déjà intégrés dans la base de données ecoinvent. Cependant, il est important de noter que ces processus peuvent ne pas être entièrement représentatifs des modèles spécifiques de l'ordinateur Dell T1700/3620. Par conséquent, il est possible que les résultats de l'analyse de cycle de vie ne reflètent pas fidèlement l'impact environnemental réel de ces ordinateurs. De plus, la modélisation des Raspberry Pi et des serveurs a été réalisée en utilisant des processus génériques, ce qui peut également introduire des incertitudes dans les résultats. Il est donc essentiel d'interpréter les résultats avec prudence et de considérer ces limitations lors de l'évaluation de l'impact environnemental du parc informatique de l'ENSEIRB-MATMECA.\\
+\textcolor{blue}{[Bonus 6]}~En plus de cela, nous n'avons pas pris en compte les equipements extrenes (écrans, claviers, souris, etc.) qui peuvent également avoir un impact significatif sur l'empreinte carbone totale du parc informatique et pourraît nécessité d'être changé selon la compatibilité avec les Raspberry Pi. \\
+Par exemple, un écran consomme entre 10 et 30 Wh~\cite{maitriserenergie2024}. En considérant que ceux-ci ne sont jamasi étaient, cela représente environ 0,48 kWh par jour par écran, soit plus de 100 kWh par an pour l'ensemble du parc informatique. \\
+Ainsi, pour rendre cette étude plus précise, il aurait fallu étudier leurs compatibilité avec les Raspberry Pi et modéliser leurs impacts environnementaux.
 
-\subsection{Perspectives}
-\textcolor{blue}{[Question 11]}~\textcolor{gray}{Six serveurs sont suffisants mais en cas de panne, cela peut poser problème. Que se passe-t-il si l’on en considère 8 ? Votre conclusion change-t-elle ?}
-\textcolor{blue}{[Question 10-2]}~\textcolor{gray}{Quels sont les avantages et les inconvénients de chacune des stratégies ? \\ Six serveurs sont suffisants mais en cas de panne, cela peut poser problème. Que se passe-t-il si l’on en considère 8 ? Votre conclusion change-t-elle ?}
-
-\LaTeX
-\begin{figure}[H]%[htbp]
-    \centering
-    \includegraphics[width=\linewidth]{img/8vs6vsDELL.png}
-    \caption{Comparaison entre six cent Raspberry Pi couplés à huit serveurs, six cent Raspberry Pi couplés à six serveurs et six cent ordinateur Dell de type tour T1700/3620}
-    \label{fig:8vs6vsDELL}
-\end{figure}
-
-La figure \ref{fig:8vs6vsDELL} représente la différence de l'impact environnementaux des 2 stratégies, ainsi que celle entre le choix de 6 ou 8 serveurs pour la stratégies combinant des Raspberry Pi et des serveurs.
-Nous pouvons identifier que la stratégie consistant à installer 600 ordinateurs Dell de type tour T1700/3620 a un impact environnemental eviron 10 fois supérieur aux autres scénarios étudiés, et ce quelque soit la catégorie d'impact.
-Parmis les 2 scénarios implémentant des Raspberry Pi a des serveurs, si les impacts environnementaux du scénario optant pour 8 serveurs sont légèrement supérieurs, ils restent cependant très proche de celui n'en ayant que 6.
-
-\LaTeX
-
-Nous avons pu observer qui si le fait de mettre en oeuvre 8 serveurs au lieu de 6 augmentait les impact environnementaux, cette augmentation est très faible voir négligeable dans le contexte d'une comparaison avec la stratégie consistant à déployer 600 ordinateurs Dell de type tour T1700/3620.
-
-\LaTeX
 
 % Conclusion
 \section{Conclusion et ouvertures}
-\textcolor{gray}{\lipsum[1-2] }
+\textcolor{blue}{[Question 10-1]}~\textcolor{gray}{\lipsum[1-2] }
 % \include{glossaire}
 
 % % Références
