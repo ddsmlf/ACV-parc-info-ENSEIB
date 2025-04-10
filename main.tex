@@ -80,12 +80,9 @@ Dans une premiers temps, nous avons modélisé l'impacte environnemental des ord
 \subsubsection{Composants}
 Ces modèles, relativement équivalents, contiennent plusieurs composants essentiels à leur fonctionnement. Pour cela nous avons réalisé un \textit{processus}\footnote{Un processus dans openLCA est un ensemble d'activités qui transforment des matières premières en produits finis.} modélisant un ordinateur et y avons intégré les éléments suivants en fonction des indictaions fournies dans le sujet~\cite{TP2_ACV_ENSEIRB-MATMECA} pour le choix des processus de la base ecoinvent~\cite{ecoinvent2024} :
 \begin{itemize}
-    \item La carte mère : Motherboard*
     \item Le processeur : integrated circuit, logic type
-    \item La mémoire vive : RAM*
     \item Le disque dur : Hard disk drive, for desktop computer
     \item L'alimentation : Power supply unit, for desktop computer
-    \item La carte graphique : GPU*
     \item Le lecteur/graveur CD/DVD : Disk drive, CD/DVD, ROM, for desktop computer
 \end{itemize}
 A cela, nous avons ajouté le chassis de l'ordinateur, la carte mère, la RAM et la carte graphique. Ces composants ne sont pas encore modélisé dans la base de données ecoinvent. Pour se faire nous avons utilisé les providers créés lors d’un projet 2020/2021 par des étudiants de 2A de la filière Électronique.\\
@@ -97,7 +94,7 @@ Nous avons définis l'ensemble de ces composants avec une quantitée de une unit
 \subsubsection{Fabrication}
 Nous avons par la suite intégré le processus d'assemblage de l'ordinateur. Nous avons pour cela considéré l'électricité produite en Chine, l'eau potable et son traitement.
 Le sujet~\cite{TP2_ACV_ENSEIRB-MATMECA} nous précise que l'éléctricité putilisé pour l'assemblage correspond au processus ecoinvent \textit{electricity,
-medium voltage} avec une quantitée de 2,767 kWh. Pour vérifier cette infromation, nous avons consulté le rapport \textit{Electronic Devices - Part III}~\cite{Lehmann2007} qui indique que la consommation d'énergie pour découper les plaques d'acier est de 0,277 KWh, 0,222 KWh pour le fraisage, et que l'éléctricité pour l'assemblage est de 2,222 KWh. En additionnant ces valeurs, nous obtenons une consommation totale de 2,721 KWh. Le rapport mentionne néanmoins que ses valeurs sont des moyennes et que leurs écart-type géométrique est de 95\% ce qui signifie que la consommation d'énergie peut varier considérablement en fonction des conditions de fabrication. Par conséquent, nous avons décidé de conserver la valeur de 2,767 KWh fournie dans le sujet car elle est tout tout de même proche de la valeur que nous avons calculée.\\
+medium voltage} avec une quantitée de 2,767 kWh. \textcolor{blue}{[Bonus 3]}~Pour vérifier cette infromation, nous avons consulté le rapport \textit{Electronic Devices - Part III}~\cite{Lehmann2007} qui indique que la consommation d'énergie pour découper les plaques d'acier est de 0,277 KWh, 0,222 KWh pour le fraisage, et que l'éléctricité pour l'assemblage est de 2,222 KWh. En additionnant ces valeurs, nous obtenons une consommation totale de 2,721 KWh. Le rapport mentionne néanmoins que ses valeurs sont des moyennes et que leurs écart-type géométrique est de 95\% ce qui signifie que la consommation d'énergie peut varier considérablement en fonction des conditions de fabrication. Par conséquent, nous avons décidé de conserver la valeur de 2,767 KWh fournie dans le sujet car elle est tout tout de même proche de la valeur que nous avons calculée.\\
 Pour l'eau potable, le sujet~\cite{TP2_ACV_ENSEIRB-MATMECA} nous indique que la valeur est de 1600kg. Nous avons donc utilisé le processus ecoinvent \textit{tap water} avec cette quantitée carelle est confirmée par le rapport \textit{Electronic Devices - Part III}\cite{Lehmann2007} qui indique que la consommation d'eau pour l'assemblage est de 1620kg, ce qui est très proche de la valeur fournie dans le sujet.\\
 Pour le traitement de l'eau, nous avons utilisé le processus ecoinvent \textit{wastewater, unpolluted} avec une quantitée de -1,62m³ trouvée dans le rapport \textit{Electronic Devices - Part III}\cite{Lehmann2007}. Cette valeur est négative car elle est considérée comme un déchet et la base de données ecoinvent qui utilise la méthode \textit{Opposite Direction Approach} qui consiste à modéliser les flux de déchets en tant que flux négatifs. Cette approche permet de représenter le traitement des déchets comme une consommation négative de ressources, inversant ainsi le sens conventionnel des flux de matériaux. En conséquence, le processus de traitement de l’eau est modélisé avec une valeur négative, indiquant qu’il s’agit d’un rejet nécessitant un traitement, et non d’une ressource consommée. Cette méthodologie garantit que les impacts environnementaux du traitement des déchets sont correctement pris en compte dans l’analyse du cycle de vie~\cite{openLCATutorial2020}.
 
@@ -112,7 +109,7 @@ Nous avons utilisé le processus ecoinvent \textit{corrugated board box} pour l'
 granulate} avec une quantitée de 0,16kg. Enfin, pour la transformation du plastique en film, nous avons utilisé le processus ecoinvent \textit{polymer foaming} avec une quantitée de 0,16kg. Ces deux dernières valeurs sont également fournies dans le sujet~\cite{TP2_ACV_ENSEIRB-MATMECA}.
 
 \subsubsection{Transport}
-Nous considérons que l'ordinateur est transporté du site de fabrication au site d'utilisation en bateau (15 000 km) et en camion (1000 km en Chine et 1000 km en France). Pour cela nous avons alors utiliser le processus \textit{transport, freight, sea, transoceanic ship} pour la partie maritime et les processus \textit{BALABLA UE} et \textit{BLAAL CHINE} respectivement pour la partie terrestre en Chine et en France. Nous avons utilisé l'unité \textit{km × kg} pour le transport maritime et terrestre, en estimant le poids de notre colis avec la somme des poids de l'ordinateur et de son emballage, soit 10,75kg.
+Nous considérons que l'ordinateur est transporté du site de fabrication au site d'utilisation en bateau (15 000 km) et en camion (1000 km en Chine et 1000 km en France). Pour cela nous avons alors utiliser le processus \textit{transport, freight, sea, transoceanic ship} pour la partie maritime et les processus \textit{transport, freight, lorry 16-32 metric ton, EURO5} avec pour provider \textit{market for $\cdots$ RER} et \textit{market for $\cdots$ RoW} respectivement pour la partie terrestre en Chine et en France. Nous avons utilisé l'unité \textit{km × kg} pour le transport maritime et terrestre, en estimant le poids de notre colis avec la somme des poids de l'ordinateur et de son emballage, soit 10,75kg.
 
 
 \subsubsection{Création du processus}
@@ -129,34 +126,40 @@ Nous avons alors pu créer le processus \textit{Computer DELL T1700/3620} visibl
 \end{figure}
 
 \subsection{Six cent Raspberry Pi couplés à six serveurs}
-\textcolor{gray}{
-On considère que 6 serveurs sont suffisants pour piloter 600 clients légers constitués de Raspberry
-Pi.\\
-8. Regarder et commenter le processus Raspberry Pi 4 Rev B. Faire de même avec le processus
-Serveur 48 cœurs. Remarque : Le processus mounting correspondant ici à l’assemblage des
-composants sur le circuit imprimé (placement des composants, brasure, nettoyage des cartes
-assemblées à l’issue du processus, etc.). Pour l’ordinateur et le serveur, il est déjà directement
-intégré au niveau des composants.\\
-9. Créer le product system Use of Raspberry + Server at ENSEIRB-MATMECA. Ne pas oublier
-de prendre en compte la consommation électrique des Raspberry Pi mais aussi des serveurs.
-Répondre aux questions qui vous semblent pertinentes de la question 7\cite{Dell2018}
-}
-
-
-\subsection{Protocole}
-\textcolor{gray}{\lipsum[1-2] }
-
+Nous considérons dans notre étude que 600 Raspberry Pi 4 Rev B sont couplés à 6 serveurs Dell Precision 7920T. Nous allons modéliser l'impact environnemental de cette solution en utilisnat directement les processus qui nou sont été fournis. A partir de ces processus, nous avons pu créer le product system correspondant aux Raspberry Pi et aux serveurs. Nous avons ensuite modélisé la consommation électrique des Raspberry Pi et des serveurs en \textcolor{red}{COMPLETE STP}.
 
 \section{Résulats}
 \subsection{Ordinateur Dell de type tour T1700/3620}
-\textcolor{gray}{\lipsum[1-2] }
+\label{sec:computer}
 \begin{figure}[h!]%[htbp]
     \centering
     \includegraphics[width=\linewidth]{img/graph-dell-vs-our.png}
     \caption{Comparaison entre le bilan carbone de Dell et celui de notre modélisation}
     \label{fig:computer-impact}
 \end{figure}
-
+\textcolor{blue}{[Question 6-1]}~La figure~\ref{fig:computer-impact} présente la comparaison entre le bilan carbone de Dell et celui de notre modélisation. Nous pouvons observer que la carte représente près de 60\% du bilan carbone total d'après DELL, tandis que notre modélisation indique que la carte mère et les autres cartes représentent environ 70\% du bilan carbone total. Néanmoins ils sont équivalent en termes de CO\textsubscript{2}e émis comme présenté dans le tableau~\ref{tab:emissions}.\\
+Nous avons également observé que le transport représente une part négligable d'après nos résultats, alors qu'il représente près de 10\% du bilan carbone d'après DELL. \\
+Au total, nous avons obtenu un bilan carbone de 288,219 kg CO\textsubscript{2}e pour un ordinateur Dell de type tour T1700/3620, tandis que DELL annonce un bilan carbone de 341,544 kg CO\textsubscript{2}e.
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|p{2.5cm}|p{2.4cm}|p{2.4cm}|}
+    \hline
+    \textbf{Composant} & \textbf{Émission d'après DELL} & \textbf{Émission d'après nos résultats } \\
+    \hline
+    Transportation & 28{,}89 & 5{,}421 \\ \hline
+    Chassis & 28{,}89 & 28{,}075 \\ \hline
+    Power Supply Unit & 70{,}62 & 39{,}076 \\ \hline
+    Packaging & 3{,}852 & 1{,}997 \\ \hline
+    Hard Drive & 10{,}272 & 16{,}149 \\ \hline
+    Main Board \& Other Boards & 199{,}02 & 197{,}501 \\
+    \hline
+    \textbf{Total} & \textbf{341{,}544} & \textbf{288{,}219} \\
+    \hline
+    \end{tabular}
+    \caption{Émissions de CO\textsubscript{2}e pour chaque composant de l'ordinateur Dell T1700/3620 selon DELL et selon nos résultats}
+    \label{tab:emissions}
+\end{table}
+    
 \subsection{Six cent Raspberry Pi couplés à six serveurs}
 \textcolor{gray}{\lipsum[1-2] }
 
@@ -174,23 +177,37 @@ Répondre aux questions qui vous semblent pertinentes de la question 7\cite{Dell
 
 \section{Discussion}
 \subsection{Ordinateur Dell de type tour T1700/3620}
+\textcolor{blue}{[Question 6-2]}~Dans la section~\ref{sec:computer}, nous avons pu constater que les empreintes carbones que nous avons calculées et celle fournie par DELL sont du même ordre de grandeur, bien que celle de DELL soit légèrement supérieure. Cette différence, principalement visible dans le transport, pourrait provenir d'une différence dans la façon de modéliser l'acheminement des ordinateurs. En effet, DELL indique que les ordinateurs sont assemblés en Europe, tandis que nous avons considéré celui-ci en Chine. Ce qui pourrait présenter des différences d'acheminement des composants par rapport à notre modélisation.
+\textcolor{blue}{[Question 7]}~\textcolor{gray}{a. Bilan carbone : Comment se sépare la phase de fabrication de la phase d’usage ? Et par rap-}
+\textcolor{gray}{port à l’étude de Dell ?}
+\textcolor{gray}{b. Bilan carbone : Qu’est-ce qui est le plus impactant dans l’ordinateur ?}
+\textcolor{gray}{c. Étudier d’autres facteurs d’impact comme par exemple : ionizing radiation, water consumption}
+\textcolor{gray}{et mineral ressources scarcity.}
+
+
+\subsection{Six cent Raspberry Pi couplés à six serveurs}
+
+\textcolor{gray}{
+On considère que 6 serveurs sont suffisants pour piloter 600 clients légers constitués de Raspberry
+Pi.\\ 8. Regarder et commenter le processus Raspberry Pi 4 Rev B. Faire de même avec le processus
+Serveur 48 cœurs. Remarque : Le processus mounting correspondant ici à l’assemblage des composants sur le circuit imprimé (placement des composants, brasure, nettoyage des cartes
+assemblées à l’issue du processus, etc.). Pour l’ordinateur et le serveur, il est déjà directement intégré au niveau des composants.\\ 9. Créer le product system Use of Raspberry + Server at ENSEIRB-MATMECA. Ne pas oublier de prendre en compte la consommation électrique des Raspberry Pi mais aussi des serveurs. Répondre aux questions qui vous semblent pertinentes de la question 7 :}
 \textcolor{gray}{a. Bilan carbone : Comment se sépare la phase de fabrication de la phase d’usage ? Et par rap-}
 \textcolor{gray}{port à l’étude de Dell ?}
 \textcolor{gray}{b. Bilan carbone : Qu’est-ce qui est le plus impactant dans l’ordinateur ?}
 \textcolor{gray}{c. Étudier d’autres facteurs d’impact comme par exemple : ionizing radiation, water consumption}
 \textcolor{gray}{et mineral ressources scarcity.}
-\textcolor{gray}{[Bonus 4]. Bilan carbone : Quel est le bilan carbone d’un étudiant ou d’une étudiante de}
-\textcolor{gray}{l’ENSEIRB-MATMECA pour la partie informatique durant ses 3 années d’études ?}
-
-\subsection{Six cent Raspberry Pi couplés à six serveurs}
-\textcolor{gray}{\lipsum[1-2] }
 \subsection{Comparaison entre les 2 stratégies}
+\textcolor{blue}{[Bonus 4]}~\textcolor{gray}{[Bonus 4]. Bilan carbone : Quel est le bilan carbone d’un étudiant ou d’une étudiante de}
+\textcolor{gray}{l’ENSEIRB-MATMECA pour la partie informatique durant ses 3 années d’études ?}
 \textcolor{gray}{\lipsum[1-2] }
 \subsection{Limites de l'étude}
-L'ensemble des processus utilisé pour modélisé les ordinateur sont déjà intégrés dans la base de données ecoinvent. Cependant, il est important de noter que ces processus peuvent ne pas être entièrement représentatifs des modèles spécifiques de l'ordinateur Dell T1700/3620. Par conséquent, il est possible que les résultats de l'analyse de cycle de vie ne reflètent pas fidèlement l'impact environnemental réel de ces ordinateurs. De plus, la modélisation des Raspberry Pi et des serveurs a été réalisée en utilisant des processus génériques, ce qui peut également introduire des incertitudes dans les résultats. Il est donc essentiel d'interpréter les résultats avec prudence et de considérer ces limitations lors de l'évaluation de l'impact environnemental du parc informatique de l'ENSEIRB-MATMECA.
+\textcolor{blue}{[Question 10-1]}~L'ensemble des processus utilisé pour modélisé les ordinateur sont déjà intégrés dans la base de données ecoinvent. Cependant, il est important de noter que ces processus peuvent ne pas être entièrement représentatifs des modèles spécifiques de l'ordinateur Dell T1700/3620. Par conséquent, il est possible que les résultats de l'analyse de cycle de vie ne reflètent pas fidèlement l'impact environnemental réel de ces ordinateurs. De plus, la modélisation des Raspberry Pi et des serveurs a été réalisée en utilisant des processus génériques, ce qui peut également introduire des incertitudes dans les résultats. Il est donc essentiel d'interpréter les résultats avec prudence et de considérer ces limitations lors de l'évaluation de l'impact environnemental du parc informatique de l'ENSEIRB-MATMECA.
+\textcolor{blue}{[Bonus 6]}~\textcolor{gray}{es écrans n’ont pas été modélisés. Quels sont les choix que nous aurions pu faire ?
+(Rechercher par exemple des bilans carbone d’écrans).}
 \subsection{Perspectives}
-\textcolor{gray}{\lipsum[1-2] }
-
+\textcolor{blue}{[Question 11]}~\textcolor{gray}{Six serveurs sont suffisants mais en cas de panne, cela peut poser problème. Que se passe-t-il si l’on en considère 8 ? Votre conclusion change-t-elle ?}
+\textcolor{blue}{[Question 10-2]}~\textcolor{gray}{Quels sont les avantages et les inconvénients de chacune des stratégies ? \\ Six serveurs sont suffisants mais en cas de panne, cela peut poser problème. Que se passe-t-il si l’on en considère 8 ? Votre conclusion change-t-elle ?}
 
 % Conclusion
 \section{Conclusion et ouvertures}
