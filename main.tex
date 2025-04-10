@@ -124,7 +124,10 @@ Nous considérons que l'ordinateur est transporté du site de fabrication au sit
 Nous avons alors pu créer le processus \textit{Computer DELL T1700/3620} visible en figure~\ref{fig:computer-process} en intégrant l'ensemble des processus que nous venons de décrire. Il représente la fabrication d'un ordinateur de ce modèle. Nous complétons ce processus par un second processus \textit{Use of computer DELL T1700/3620 at ENSEIRB-MATMECA} pour prendre en compte à la fois les 600 ordinateurs mais aussi leur consommation électrique selon les données fournies dans le sujet~\cite{TP2_ACV_ENSEIRB-MATMECA}. Ainsi nous pouvons créer le \textit{product system}\footnote{Un product system est un ensemble de processus interconnectés qui représentent un système de produits ou de services. Il permet d'analyser les flux de matières et d'énergie tout au long du cycle de vie d'un produit.} associé et réaliser le calcul d'impact.
 
 \subsection{Six cent Raspberry Pi couplés à six serveurs}
-Nous considérons dans notre étude que 600 Raspberry Pi 4 Rev B sont couplés à 6 serveurs Dell Precision 7920T. Nous allons modéliser l'impact environnemental de cette solution en utilisant directement les processus qui nous ont été fournis. A partir de ces processus, nous avons pu en créer un autre, \textit{Use of Raspberry + Server at ENSEIRB-MATMECA}, correspondant à l'utilisation d'un système informatique composé de Raspberry Pi et de Serveurs 48 coeurs à l'ENSEIRB-MATMECA. Celui ci modélise donc à la fois la fabrication et le transport initial du matériel informatique ainsi que sa consommation électrique au court de sa durée de vie.
+Nous considérons dans notre étude que 600 Raspberry Pi 4 Rev B sont couplés à 6 serveurs Dell Precision 7920T. Nous allons modéliser l'impact environnemental de cette solution en utilisant directement les processus qui nous ont été fournis. A partir de ces processus, nous avons pu en créer un autre, \textit{Use of Raspberry + Server at ENSEIRB-MATMECA}, correspondant à l'utilisation d'un système informatique composé de Raspberry Pi et de Serveurs 48 coeurs à l'ENSEIRB-MATMECA. Celui ci modélise donc à la fois la fabrication et le transport initial du matériel informatique ainsi que sa consommation électrique au court de sa durée de vie.\\
+\textcolor{blue}{[Question 8]}~\textcolor{red}{On considère que 6 serveurs sont suffisants pour piloter 600 clients légers constitués de Raspberry Pi.\\ 8. Regarder et commenter le processus Raspberry Pi 4 Rev B. Faire de même avec le processus Serveur 48 cœurs. Remarque : Le processus mounting correspondant ici à l’assemblage des composants sur le circuit imprimé (placement des composants, brasure, nettoyage des cartes assemblées à l’issue du processus, etc.). Pour l’ordinateur et le serveur, il est déjà directement intégré au niveau des composants.}
+
+
 \begin{figure}[H]%[htbp]
     \centering
     \includegraphics[width=\linewidth, trim=80 0 80 90, clip]{img/graph-dell-vs-our.png}
@@ -231,11 +234,7 @@ Les ressources minérales sont quant à elles impactées par la phase de fabrica
 
 \subsection{Six cent Raspberry Pi couplés à six serveurs}
 
-\textcolor{gray}{
-On considère que 6 serveurs sont suffisants pour piloter 600 clients légers constitués de Raspberry
-Pi.\\ 8. Regarder et commenter le processus Raspberry Pi 4 Rev B. Faire de même avec le processus
-Serveur 48 cœurs. Remarque : Le processus mounting correspondant ici à l’assemblage des composants sur le circuit imprimé (placement des composants, brasure, nettoyage des cartes
-assemblées à l’issue du processus, etc.). Pour l’ordinateur et le serveur, il est déjà directement intégré au niveau des composants.\\ 9. Créer le product system Use of Raspberry + Server at ENSEIRB-MATMECA. Ne pas oublier de prendre en compte la consommation électrique des Raspberry Pi mais aussi des serveurs. Répondre aux questions qui vous semblent pertinentes de la question 7 :}
+\textcolor{gray}{ 9. Créer le product system Use of Raspberry + Server at ENSEIRB-MATMECA. Ne pas oublier de prendre en compte la consommation électrique des Raspberry Pi mais aussi des serveurs. Répondre aux questions qui vous semblent pertinentes de la question 7 :}
 \textcolor{gray}{a. Bilan carbone : Comment se sépare la phase de fabrication de la phase d’usage ? Et par rap-}
 \textcolor{gray}{port à l’étude de Dell ?}
 \textcolor{gray}{b. Bilan carbone : Qu’est-ce qui est le plus impactant dans l’ordinateur ?}
