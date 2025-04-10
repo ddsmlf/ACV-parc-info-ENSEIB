@@ -139,7 +139,7 @@ Nous considérons dans notre étude que 600 Raspberry Pi 4 Rev B sont couplés �
     \caption{Comparaison entre le bilan carbone de Dell et celui de notre modélisation}
     \label{fig:computer-impact}
 \end{figure}
-\textcolor{blue}{[Question 6-1]}~La figure~\ref{fig:computer-impact} présente la comparaison entre le bilan carbone de Dell et celui de notre modélisation. Nous pouvons observer que la carte représente près de 60\% du bilan carbone total d'après DELL, tandis que notre modélisation indique que la carte mère et les autres cartes représentent environ 70\% du bilan carbone total. Néanmoins ils sont équivalent en termes de CO\textsubscript{2}e émis comme présenté dans le tableau~\ref{tab:emissions}.\\
+\textcolor{blue}{[Question 6-1 et 7-b]}~La figure~\ref{fig:computer-impact} présente la comparaison entre le bilan carbone de Dell et celui de notre modélisation. Nous pouvons observer que la carte représente près de 60\% du bilan carbone total d'après DELL, tandis que notre modélisation indique que la carte mère et les autres cartes représentent environ 70\% du bilan carbone total. Néanmoins ils sont équivalent en termes de CO\textsubscript{2}e émis comme présenté dans le tableau~\ref{tab:emissions}.\\
 \begin{table}[H]
     \centering
     \begin{tabular}{|p{2.5cm}|p{2.4cm}|p{2.4cm}|}
@@ -167,10 +167,10 @@ Au total, nous avons obtenu un bilan carbone de 288,219 kg CO\textsubscript{2}e 
     \centering
     \includegraphics[width=\linewidth]{img/graph-frabr-usage-dell-vs-us.png}
     \caption{Comparaison entre les émissions de CO\textsubscript{2}e pour la phase de fabrication et d'utilisation de l'ordinateur Dell T1700/3620 selon DELL et selon nos résultats}
-    \label{fig:-fab-impact}
+    \label{fig:fab-impact}
 \end{figure}
 
-\textcolor{blue}{[Question 7-a]}~La figure \ref{fig:computer-impact} nous permet quant à elle de comparer les émissions de CO\textsubscript{2}e pour la phase de fabrication et d'utilisation de l'ordinateur Dell T1700/3620 selon DELL et selon nos résultats. Nous pouvons observer que la phase de fabrication représente environ 50\% du bilan carbone total d'après DELL, tandis que notre modélisation indique que la phase de fabrication représente environ 75\% du bilan carbone total.\\
+\textcolor{blue}{[Question 7-a]}~La figure \ref{fig:fab-impact} nous permet quant à elle de comparer les émissions de CO\textsubscript{2}e pour la phase de fabrication et d'utilisation de l'ordinateur Dell T1700/3620 selon DELL et selon nos résultats. Nous pouvons observer que la phase de fabrication représente environ 50\% du bilan carbone total d'après DELL, tandis que notre modélisation indique que la phase de fabrication représente environ 75\% du bilan carbone total.\\
 \begin{table}[H]
     \centering
     \begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
@@ -185,10 +185,15 @@ Au total, nous avons obtenu un bilan carbone de 288,219 kg CO\textsubscript{2}e 
     \caption{Comparatif des émissions et consommation entre la phase de fabrication et d'utilisation de l'ordinateur Dell T1700/3620 selon DELL et selon nos résultats}
     \label{tab:comparatif}
 \end{table}
-Nous pouvons également constater sur la table~\ref{tab:comparatif} l'émissions données par DELL est bien supérieur à la notre que ce soit pour la phase de fabrication ou d'utilisation. alors que leurs consommation annuelle annoncé est bien inférieure à la notre.\\
-\textcolor{blue}{[Question 7-b]}~coucoc\\
+Nous pouvons également constater sur la table~\ref{tab:comparatif} l'émissions données par DELL est bien supérieur à la notre que ce soit pour la phase de fabrication ou d'utilisation. alors que leurs consommation annuelle annoncé est bien inférieure à la notre.
 
-\textcolor{blue}{[Question 7-c]}~coucoc
+\begin{figure}[H]%[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{img/graph-other.png}
+    \caption{Impacte de l'utilisation et de la fabrication sur le réchauffement climatique, les radiation ionisantes, la consommation d'eau et la rareté des ressources minérales}
+    \label{fig:other-impact}
+\end{figure}
+\textcolor{blue}{[Question 7-c]}~Afin de mieux comprendre l'impact environnemental de l'ordinateur Dell T1700/3620, nous avons également étudié d'autres facteurs d'impact tels que le réchauffement climatique, les radiations ionisantes, la consommation d'eau et la rareté des ressources minérales. La figure~\ref{fig:other-impact} présente les résultats de cette analyse. Nous pouvons observer que la phase d'utilisation a un impact significatif sur les radiations ionisantes et la consommation d'eau, tandis que la phase de fabrication a un impact plus important sur le réchauffement climatique et la rareté des ressources minérales.
     
 \subsection{Six cent Raspberry Pi couplés à six serveurs}
 \textcolor{gray}{\lipsum[1-2] }
@@ -209,12 +214,8 @@ Nous pouvons également constater sur la table~\ref{tab:comparatif} l'émissions
 \subsection{Ordinateur Dell de type tour T1700/3620}
 \textcolor{blue}{[Question 6-2]}~Dans la section~\ref{sec:computer}, nous avons pu constater que les empreintes carbones que nous avons calculées et celle fournie par DELL sont du même ordre de grandeur, bien que celle de DELL soit légèrement supérieure. Cette différence, principalement visible dans le transport, pourrait provenir d'une différence dans la façon de modéliser l'acheminement des ordinateurs. En effet, DELL indique que les ordinateurs sont assemblés en Europe, tandis que nous avons considéré celui-ci en Chine, ce qui pourrait présenter des différences d'acheminement des composants par rapport à notre modélisation.\\ \\
 \textcolor{blue}{[Question 7-a]}~Nous avons aussi pu observer une différence significative entre les émissions de CO\textsubscript{2}e pour la phase de fabrication et d'utilisation, avec pourtant une tendance inverse pour la consommation annuelle. Celle-ci peut s'expliquer par le fait que nos calculs dépendent d'une consommation électrique française, alors que DELL présente ses études au sein de l'UE. Or, en France, l'utilisation de centrales nucléaires pour la production d'électricité rend la consommation électrique bien plus faible en termes d'émissions de CO\textsubscript{2}e.
-
-\textcolor{gray}{a. Bilan carbone : Comment se sépare la phase de fabrication de la phase d’usage ? Et par rap-}
-\textcolor{gray}{port à l’étude de Dell ?}
-\textcolor{gray}{b. Bilan carbone : Qu’est-ce qui est le plus impactant dans l’ordinateur ?}
-\textcolor{gray}{c. Étudier d’autres facteurs d’impact comme par exemple : ionizing radiation, water consumption}
-\textcolor{gray}{et mineral ressources scarcity.}
+\textcolor{blue}{[Question 7-c]}~Les résultats de l'analyse de cycle de vie montrent que la phase d'utilisation a un impact significatif sur les radiations ionisantes et la consommation d'eau, alors qu'elle est bien plus faible sur le réchauffement climatique. Ceci s'explique par le mix énergétique français qui, par le nucléaire, est très décarboné mais produit en revanche des déchets nucléaires qui eux sont radioactifs et nécessitent beaucoup d'eau pour le refroidissement des centrales.
+Les ressources minérales sont quant à elles impactées par la phase de fabrication, ce qui s'explique par la nécessité d'extraire des métaux et des minéraux rares pour la fabrication des composants électroniques.
 
 
 \subsection{Six cent Raspberry Pi couplés à six serveurs}
