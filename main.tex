@@ -77,20 +77,21 @@ Nous avons utilisé le logiciel openLCA pour modélisé les processus de fabrica
 
 \subsection{Ordinateur Dell de type tour T1700/3620}
 Dans une premiers temps, nous avons modélisé l'impacte environnemental des ordinateurs Dell de type tour T1700/3620 présent dans le parc informatique de l'ENSEIRB-MATMECA. Nous décrirons ci-dessous les différentes étapes de la modélisation, en commençant par la fabrication des ordinateurs, suivie de l'emballage et du transport. 
-\subsubsection{Modélisation des composants}
-Ces modèles, relativement équivalents, sont composés de plusieurs composants essentiels à leur fonctionnement. Pour cela nous avons réalisé un \textit{processus}\footnote{Un processus dans openLCA est un ensemble d'activités qui transforment des matières premières en produits finis.} composé de 600 \textit{Number of items} et y avons intégré les éléments suivants en fonction des indictaions fournies dans le sujet~\cite{TP2_ACV_ENSEIRB-MATMECA} pour le choix des processus de la base ecoinvent~\cite{ecoinvent2024} :
+\subsubsection{Composants}
+Ces modèles, relativement équivalents, contiennent plusieurs composants essentiels à leur fonctionnement. Pour cela nous avons réalisé un \textit{processus}\footnote{Un processus dans openLCA est un ensemble d'activités qui transforment des matières premières en produits finis.} modélisant un ordinateur et y avons intégré les éléments suivants en fonction des indictaions fournies dans le sujet~\cite{TP2_ACV_ENSEIRB-MATMECA} pour le choix des processus de la base ecoinvent~\cite{ecoinvent2024} :
 \begin{itemize}
-    \item La carte mère : Motherboard
+    \item La carte mère : Motherboard*
     \item Le processeur : integrated circuit, logic type
-    \item La mémoire vive : RAM
+    \item La mémoire vive : RAM*
     \item Le disque dur : Hard disk drive, for desktop computer
     \item L'alimentation : Power supply unit, for desktop computer
-    \item La carte graphique : GPU
+    \item La carte graphique : GPU*
     \item Le lecteur/graveur CD/DVD : Disk drive, CD/DVD, ROM, for desktop computer
 \end{itemize}
-Nous avosn définis l'ensemble de ces composants avec une quantitée de une unitée hors mis pour la RAM, après observation directe du contenu de l'ordinateur, nous avons déterminé qu'il y avait 2 barrettes de RAM. Nous avons donc défini la RAM avec une quantité de 2 unités.\\
+A cela, nous avons ajouté le chassis de l'ordinateur, la carte mère, la RAM et la carte graphique. Ces composants ne sont pas encore modélisé dans la base de données ecoinvent. Pour se faire nous avons utilisé les providers créés lors d’un projet 2020/2021 par des étudiants de 2A de la filière Électronique.\\
+Nous avons définis l'ensemble de ces composants avec une quantitée de une unitée hors mis pour la RAM, après observation visuelle du contenu de l'ordinateur, nous avons déterminé qu'un ordinateur contenait 2 barrettes de RAM. Nous l'avons donc défini avec une quantité de 2 unités.
 % [Bonus 1]. Détailler la modélisation de la carte mère. La critiquer.
-A cela, nous avons ajouté le chassis de l'ordinateur qui n'est pas encore modélisé dans la base de données ecoinvent. \textcolor{red}{Pour se faire nous avons .................. (un processus unitaire a été créé)}\\ \\
+
 % [Bonus 2]. Décrire le processus du châssis en détails. Le critiquer.
 
 \subsubsection{Fabrication}
